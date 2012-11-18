@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.ListIterator;
 
 public class LinkedList<T> implements List<T> {
-	
+
 	private Node<T> first;
 	private Node<T> last;
 	private int size;
@@ -24,7 +24,7 @@ public class LinkedList<T> implements List<T> {
 			this.next = next;
 		}
 	}
-	
+
 	public LinkedList() {
 		first = null;
 		last = null;
@@ -35,7 +35,7 @@ public class LinkedList<T> implements List<T> {
 		add(size, elem);
 		return true;
 	}
-	 
+
 	public void add(int i, T elem) {
 		if (i == size) {
 			Node<T> newNode = new Node<T>(elem);
@@ -57,32 +57,33 @@ public class LinkedList<T> implements List<T> {
 		}
 		size++;
 	}
-	
+
 	private void ensureIndex(int i) {
 		if (i < 0 || i >= size()) {
 			throw new IndexOutOfBoundsException();
 		}
 	}
-	 
+
 	public boolean addAll(Collection<? extends T> collection) {
 		for (T c : collection) {
 			add(c);
 		}
 		return true;
 	}
-	 
+
 	public boolean addAll(int i, Collection<? extends T> collection) {
 		for (T c : collection) {
-			add(i, c); // In this approach it has to iterate many times to do that.
+			add(i, c); // In this approach it has to iterate many times to do
+						// that.
 			i++; // I have to fix it.
 		}
 		return true;
 	}
-	 
+
 	public void clear() {
-		throw new UnsupportedOperationException("Not yet implemented.");	
+		throw new UnsupportedOperationException("Not yet implemented.");
 	}
-	 
+
 	public boolean contains(Object n) {
 		boolean contains = false;
 		if (!isEmpty()) {
@@ -101,7 +102,7 @@ public class LinkedList<T> implements List<T> {
 		}
 		return contains;
 	}
-	 
+
 	public boolean containsAll(Collection<?> collection) {
 		boolean contains = true;
 		for (Object c : collection) {
@@ -111,7 +112,7 @@ public class LinkedList<T> implements List<T> {
 		}
 		return contains;
 	}
-	 
+
 	public T get(int i) {
 		ensureIndex(i);
 		if (i == size - 1) {
@@ -124,7 +125,7 @@ public class LinkedList<T> implements List<T> {
 			return aux.data;
 		}
 	}
-	 
+
 	public int indexOf(Object o) {
 		Node<T> aux = first;
 		for (int pos = 0; pos < size; pos++) {
@@ -136,23 +137,22 @@ public class LinkedList<T> implements List<T> {
 		
 		return -1;
 	}
- 
+
 	public boolean isEmpty() {
 		return size == 0;
 	}
-	 
+
 	public Iterator<T> iterator() {
 		return new LinkedListIterator();
 	}
-	
+
 	private class LinkedListIterator implements Iterator<T> {
 		Node<T> current;
 
-		public LinkedListIterator(){
 		public LinkedListIterator() {
 			current = first;
 		}
-		
+
 		public boolean hasNext() {
 			return current != null;
 		}
@@ -164,26 +164,26 @@ public class LinkedList<T> implements List<T> {
 		}
 
 		public void remove() {
-			throw new UnsupportedOperationException();		
-		}		
+			throw new UnsupportedOperationException();
+		}
 	}
-	 
+
 	public int lastIndexOf(Object o) {
-		throw new UnsupportedOperationException("Not yet implemented.");	
+		throw new UnsupportedOperationException("Not yet implemented.");
 	}
-	 
+
 	public ListIterator<T> listIterator() {
-		throw new UnsupportedOperationException("Not yet implemented.");	
+		throw new UnsupportedOperationException("Not yet implemented.");
 	}
- 
+
 	public ListIterator<T> listIterator(int i) {
-		throw new UnsupportedOperationException("Not yet implemented.");	
+		throw new UnsupportedOperationException("Not yet implemented.");
 	}
- 
+
 	public boolean remove(Object o) {
-		throw new UnsupportedOperationException("Not yet implemented.");	
+		throw new UnsupportedOperationException("Not yet implemented.");
 	}
- 
+
 	public T remove(int i) {
 		ensureIndex(i);
 		T toRemove = null;
@@ -210,7 +210,7 @@ public class LinkedList<T> implements List<T> {
 		size--;
 		return toRemove;
 	}
- 
+
 	public boolean removeAll(Collection<?> collection) {
 		for (Object c : collection) {
 			remove(c);
@@ -219,9 +219,9 @@ public class LinkedList<T> implements List<T> {
 	}
 
 	public boolean retainAll(Collection<?> collection) {
-		throw new UnsupportedOperationException("Not yet implemented.");	
+		throw new UnsupportedOperationException("Not yet implemented.");
 	}
- 
+
 	public T set(int i, T elem) {
 		ensureIndex(i);
 		T previous = null;
@@ -233,7 +233,7 @@ public class LinkedList<T> implements List<T> {
 			for (int pos = 0; pos < i; pos++) {
 				aux = aux.next;
 			}
-			
+
 			previous = aux.data;
 			aux.data = elem;
 		}
@@ -243,9 +243,9 @@ public class LinkedList<T> implements List<T> {
 	public int size() {
 		return size;
 	}
- 
+
 	public List<T> subList(int x, int y) {
-		throw new UnsupportedOperationException("Not yet implemented.");	
+		throw new UnsupportedOperationException("Not yet implemented.");
 	}
 
 	public Object[] toArray() {
@@ -253,7 +253,7 @@ public class LinkedList<T> implements List<T> {
 	}
 
 	public <T> T[] toArray(T[] a) {
-		throw new UnsupportedOperationException("Not yet implemented.");	
+		throw new UnsupportedOperationException("Not yet implemented.");
 	}
 
 }
