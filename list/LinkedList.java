@@ -93,11 +93,15 @@ public class LinkedList<T> implements List<T> {
 	 
 	public T get(int i) {
 		ensureIndex(i);
-		Node<T> aux = first;
-		for (int pos = 0; pos < i; pos++) {
-			aux = aux.next;
+		if (i == size - 1) {
+			return last.data;
+		} else {
+			Node<T> aux = first;
+			for (int pos = 0; pos < i; pos++) {
+				aux = aux.next;
+			}
+			return aux.data;
 		}
-		return aux.data;
 	}
 	 
 	public int indexOf(Object o) {
@@ -166,11 +170,11 @@ public class LinkedList<T> implements List<T> {
 			}
 			if (i == (size - 1)) {
 				last = aux;
-				toRemove = last.next.data;
+				toRemove = (last.next).data;
 				last.next = null;
 			} else {
 				toRemove = aux.data;
-				aux.next = aux.next.next;
+				aux.next = (aux.next).next;
 			}
 		}
 		size--;
@@ -190,14 +194,20 @@ public class LinkedList<T> implements List<T> {
  
 	public T set(int i, T elem) {
 		ensureIndex(i);
-		Node<T> aux = first;
-		for (int pos = 0; pos < i; pos++) {
-			aux = aux.next;
+		T previous = null;
+		if (i == size - 1) {
+			previous = last.data;
+			last.data = elem;
+		} else {
+			Node<T> aux = first;
+			for (int pos = 0; pos < i; pos++) {
+				aux = aux.next;
+			}
+			
+			previous = aux.data;
+			aux.data = elem;
 		}
-		
-		T previous = aux.data;
-		aux.data = elem;
-		return previous;	
+		return previous;
 	}
 
 	public int size() {
