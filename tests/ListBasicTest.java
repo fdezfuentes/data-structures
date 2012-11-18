@@ -4,6 +4,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;
+
+import list.ArrayList;
 import list.LinkedList;
 
 public class ListBasicTest {
@@ -11,7 +13,8 @@ public class ListBasicTest {
 
 	@Before
 	public void init() {
-		list = new LinkedList<Integer>();
+		// list = new LinkedList<Integer>();
+		list = new ArrayList<Integer>();
 	}
 
 	@Test
