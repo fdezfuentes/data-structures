@@ -74,7 +74,7 @@ public class LinkedList<T> implements List<T> {
 	public boolean addAll(int i, Collection<? extends T> collection) {
 		for (T c : collection) {
 			add(i, c); // In this approach it has to iterate many times to do that.
-			// I have to fix it.
+			i++; // I have to fix it.
 		}
 		return true;
 	}
