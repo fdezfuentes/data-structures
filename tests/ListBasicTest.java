@@ -69,18 +69,18 @@ public class ListBasicTest {
 		list.add(4); // list = [1, 2, 3, 4]
 		assertTrue(list.size() == 4);
 		
-		list.remove(1); // list = [1,3,4]
+		assertTrue(list.remove(1) == 2); // list = [1,3,4]
 		assertTrue(list.size() == 3);
 		assertTrue(list.get(0) == 1);
 		assertTrue(list.get(1) == 3);
 		assertTrue(list.get(2) == 4);
 				
-		list.remove(0); // list = [3,4]
+		assertTrue(list.remove(0) == 1); // list = [3,4]
 		assertTrue(list.size() == 2);
 		assertTrue(list.get(0) == 3);
 		assertTrue(list.get(1) == 4);
 		
-		list.remove(1); // list = [3]
+		assertTrue(list.remove(1) == 4); // list = [3]
 		assertTrue(list.size() == 1);
 		assertTrue(list.get(0) == 3);
 	}
@@ -99,13 +99,13 @@ public class ListBasicTest {
 		assertTrue(list.get(list.size() - 1) == 5);
 		assertTrue(list.get(list.size() - 2) == 4);
 		
-		list.set(2, 99); // list = [3, 4, 99]
+		assertTrue(list.set(2, 99) == 5); // list = [3, 4, 99]
 		assertTrue(list.get(list.size() - 1) == 99);
 		
 		list.add(6); // list = [3, 4, 99, 6]
 		assertTrue(list.get(list.size() - 1) == 6);
 		
-		list.set((list.size() - 1), 100); // list = [3, 4, 99, 100]
+		assertTrue(list.set((list.size() - 1), 100) == 6); // list = [3, 4, 99, 100]
 		assertTrue(list.get(list.size() - 1) == 100);
 	}
 		 

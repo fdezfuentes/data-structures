@@ -173,7 +173,7 @@ public class LinkedList<T> implements List<T> {
 				toRemove = (last.next).data;
 				last.next = null;
 			} else {
-				toRemove = aux.data;
+				toRemove = (aux.next).data;
 				aux.next = (aux.next).next;
 			}
 		}
