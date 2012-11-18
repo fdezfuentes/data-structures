@@ -66,15 +66,33 @@ public class ArrayList<T> implements List<T> {
 	}
 
 	public boolean contains(Object n) {
-		throw new UnsupportedOperationException("Not yet implemented.");
+		boolean contains = false;
+			for (int i = 0; i < nextPos; i++) {
+				if (elements[i].equals(n)) {
+					contains = true;
+					break;
+				}
+			}
+		return contains;
 	}
 
 	public boolean containsAll(Collection<?> collection) {
-		throw new UnsupportedOperationException("Not yet implemented.");
+		boolean contains = true;
+		for (Object c : collection) {
+			if (!contains(c)) {
+				contains = false;
+			}
+		}
+		return contains;
 	}
 
 	public int indexOf(Object o) {
-		throw new UnsupportedOperationException("Not yet implemented.");
+		for (int i = 0; i < nextPos; i++) {
+			if (elements[i].equals(o)) {
+				return i;
+			}
+		}
+		return -1;
 	}
 
 	public T get(int i) {

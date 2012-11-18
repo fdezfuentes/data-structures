@@ -84,11 +84,32 @@ public class LinkedList<T> implements List<T> {
 	}
 	 
 	public boolean contains(Object n) {
-		throw new UnsupportedOperationException("Not yet implemented.");	
+		boolean contains = false;
+		if (!isEmpty()) {
+			if ((last.data).equals(n)) {
+				contains = true;
+			} else {
+				Node<T> aux = first;
+				for (int pos = 0; pos < size; pos++) {
+					if ((aux.data).equals(n)) {
+						contains = true;
+						break;
+					}
+					aux = aux.next;
+				}
+			}
+		}
+		return contains;
 	}
 	 
 	public boolean containsAll(Collection<?> collection) {
-		throw new UnsupportedOperationException("Not yet implemented.");	
+		boolean contains = true;
+		for (Object c : collection) {
+			if (!contains(c)) {
+				contains = false;
+			}
+		}
+		return contains;
 	}
 	 
 	public T get(int i) {
@@ -105,7 +126,15 @@ public class LinkedList<T> implements List<T> {
 	}
 	 
 	public int indexOf(Object o) {
-		throw new UnsupportedOperationException("Not yet implemented.");
+		Node<T> aux = first;
+		for (int pos = 0; pos < size; pos++) {
+			if ((aux.data).equals(o)) {
+				return pos;
+			}
+			aux = aux.next;
+		}
+		
+		return -1;
 	}
  
 	public boolean isEmpty() {
@@ -120,6 +149,7 @@ public class LinkedList<T> implements List<T> {
 		Node<T> current;
 
 		public LinkedListIterator(){
+		public LinkedListIterator() {
 			current = first;
 		}
 		
