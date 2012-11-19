@@ -131,7 +131,13 @@ public class ArrayList<T> implements List<T> {
 	}
 
 	public int lastIndexOf(Object o) {
-		throw new UnsupportedOperationException("Not yet implemented.");
+		int position = -1;
+		for (int i = 0; i < nextPos; i++) {
+			if (elements[i].equals(o)) {
+				position = i;
+			}
+		}
+		return position;
 	}
 
 	public ListIterator<T> listIterator() {

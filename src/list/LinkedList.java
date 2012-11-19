@@ -169,7 +169,15 @@ public class LinkedList<T> implements List<T> {
 	}
 
 	public int lastIndexOf(Object o) {
-		throw new UnsupportedOperationException("Not yet implemented.");
+		int position = -1;
+		Node<T> aux = first;
+		for (int i = 0; i < size; i++) {
+			if ((aux.data).equals(o)) {
+				position = i;
+			}
+			aux = aux.next;
+		}	
+		return position;
 	}
 
 	public ListIterator<T> listIterator() {
