@@ -149,7 +149,11 @@ public class ArrayList<T> implements List<T> {
 	}
 
 	public boolean remove(Object o) {
-		throw new UnsupportedOperationException("Not yet implemented.");
+		int index = indexOf(o);
+		if (index != -1) {
+			remove(index);
+		}
+		return index != -1;
 	}
 
 	public T remove(int i) {
@@ -189,7 +193,7 @@ public class ArrayList<T> implements List<T> {
 	}
 
 	public Object[] toArray() {
-		throw new UnsupportedOperationException("Not yet implemented.");
+		return Arrays.copyOf(elements, nextPos);
 	}
 
 	public <T> T[] toArray(T[] a) {

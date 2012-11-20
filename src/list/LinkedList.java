@@ -189,7 +189,11 @@ public class LinkedList<T> implements List<T> {
 	}
 
 	public boolean remove(Object o) {
-		throw new UnsupportedOperationException("Not yet implemented.");
+		int index = indexOf(o);
+		if (index != -1) {
+			remove(index);
+		}
+		return index != -1;
 	}
 
 	public T remove(int i) {
@@ -257,7 +261,13 @@ public class LinkedList<T> implements List<T> {
 	}
 
 	public Object[] toArray() {
-		throw new UnsupportedOperationException("Not yet implemented.");
+		Object[] array = new Object[size];
+		Node<T> aux = first;
+		for (int i = 0; i < size; i++) {
+			array[i] = aux.data;
+			aux = aux.next;
+		}
+		return array;
 	}
 
 	public <T> T[] toArray(T[] a) {
