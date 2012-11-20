@@ -97,6 +97,37 @@ public class ListSearchTest {
 		assertTrue(list.lastIndexOf(new Integer(1)) == 0);
 	}
 	
+	@Test
+	public void removeObject(){
+		assertTrue(list.isEmpty());
+		list.add(new Integer(1)); // list = [1]
+		list.add(new Integer(3)); // list = [1, 3]
+		list.add(new Integer(2)); // list = [1, 3, 2]
+		list.add(new Integer(3)); // list = [1, 3, 2, 3]
+		list.add(new Integer(4)); // list = [1, 3, 2, 3, 4]
+		list.add(new Integer(4)); // list = [1, 3, 2, 3, 4, 4]
+		assertTrue(list.size() == 6);
+		
+		assertTrue(list.remove(new Integer(3)) == true);
+		assertTrue(list.size() == 5);
+		assertTrue(list.get(0) == 1);
+		assertTrue(list.get(1) == 2);
+		assertTrue(list.get(2) == 3);
+		assertTrue(list.get(3) == 4);
+		assertTrue(list.get(4) == 4);
+		
+		assertTrue(list.remove(new Integer(4)) == true);
+		assertTrue(list.size() == 4);
+		assertTrue(list.get(0) == 1);
+		assertTrue(list.get(1) == 2);
+		assertTrue(list.get(2) == 3);
+		assertTrue(list.get(3) == 4);
+		
+		assertTrue(list.remove(new Integer(4)) == true);
+		assertTrue(list.remove(new Integer(4)) == false);
+		assertTrue(list.remove(new Integer(5)) == false);		
+	}
+	
 	@After
 	public void finish() {
 		list = null;
